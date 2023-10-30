@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HANGMAN WEB</title>
+</head>
+<body>
+    <h1>HANGMAN WEB</h1>
+    <h2>The Word to find :</h2>
+    <p>{{.RandomWord}}</p>
+    <p>{{.WordFind}}</p>
+    <form action="/" method="post">
+        <label for="letter">Lettre :</label>
+        <input type="text" id="letter" name="letter" required>
+        <input type="submit" value="Envoyer">
+    </form>
+    <h2>Liste de lettres bonnes :</h2>
+    <ul>
+        {{range .LettersGood}}
+            <li>{{.}}</li>
+        {{end}}
+    </ul>
+    <h2>Liste de lettres mauvaises :</h2>
+    <ul>
+        {{range .LettersWrong}}
+            <li>{{.}}</li>
+        {{end}}
+    </ul>
+    <h2>{{.Status}}</h2>
+</body>
+</html>
