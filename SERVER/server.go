@@ -1,4 +1,3 @@
-// forms.go
 package main
 
 import (
@@ -114,7 +113,7 @@ func PrintWord(word string) string {
             }
         }
         if !revealed {
-            str += "_"
+            str += "_ "
         }
     }
 
