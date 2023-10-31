@@ -2,10 +2,11 @@
 <html>
 <head>
     <title>HANGMAN WEB</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <h1>HANGMAN WEB</h1>
-    <h2>The Word to find :</h2>
+    <h2>Le mot à trouver :</h2>
     <p>{{.RandomWord}}</p>
     <p>{{.WordFind}}</p>
     <form action="/" method="post">
@@ -13,6 +14,7 @@
         <input type="text" id="letter" name="letter" required>
         <input type="submit" value="Envoyer">
     </form>
+    <h2>Nombre d'essais restant : <p>{{.Try}}</p></h2>
     <h2>Liste de lettres bonnes :</h2>
     <ul>
         {{range .LettersGood}}

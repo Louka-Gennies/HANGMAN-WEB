@@ -16,6 +16,7 @@ type ContactDetails struct {
 	RandomWord string
 	WordFind string
 	Status string
+	Try int
 }
 
 var details ContactDetails
@@ -113,7 +114,7 @@ func PrintWord(word string) string {
             }
         }
         if !revealed {
-            str += "_ "
+            str += "_"
         }
     }
 
@@ -142,6 +143,8 @@ func main() {
 
 	details.WordFind = PrintWord(details.RandomWord)
 
+	details.Try = 10
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			tmpl.Execute(w, details)
@@ -157,6 +160,7 @@ func main() {
 				details.LettersGood = append(details.LettersGood, letter)
 			} else {
 				details.LettersWrong = append(details.LettersWrong, letter)
+				details.Try -= 1
 			}
 		}
 
@@ -166,6 +170,10 @@ func main() {
 
 		if details.RandomWord == details.WordFind{
 			details.Status = "Bravo tu as trouvé le mot !!"
+		}
+
+		if details.Try == 0 {
+			details.Status = "Mince tu as perdu..."
 		}
 
 		tmpl.Execute(w, details)
