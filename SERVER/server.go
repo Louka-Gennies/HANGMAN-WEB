@@ -1,13 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"html/template"
-	"math/rand"
 	"net/http"
-	"os"
 	"strings"
-	"time"
+	"ytrack.learn.ynov.com/git/glouka/HANGMAN.git"
 )
 
 type ContactDetails struct {
@@ -29,104 +26,6 @@ func letterExists(letters []string, letter string) bool {
 	}
 	return false
 }
-
-func WordList(textFile string) (string, error) {
-	file, err := os.Open(textFile)
-	if err != nil {
-		return "", err
-	}
-	defer file.Close()
-
-	var wordList []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		wordList = append(wordList, scanner.Text())
-	}
-
-	if scanner.Err() != nil {
-		return "", scanner.Err()
-	}
-
-	rand.Seed(time.Now().UnixNano())
-	randomIndex := rand.Intn(len(wordList))
-	randomWord := wordList[randomIndex]
-
-	return randomWord, nil
-}
-
-func Verify(word, letter string) bool {
-	WordTab := []rune(word)
-	RuneLetter := []rune(letter)
-	correct := false
-
-	for i := 0; i < len(WordTab); i++ {
-		if RuneLetter[0] == WordTab[i] {
-			correct = true
-			break
-		}
-	}
-	return correct
-}
-
-func VerifyIndice(word, letter string) []int {
-	WordTab := []rune(word)
-	RuneLetter := []rune(letter)
-	var indices []int
-
-	for i := 0; i < len(WordTab); i++ {
-		if RuneLetter[0] == WordTab[i] {
-			indices = append(indices, i)
-		}
-	}
-
-	if len(indices) == 0 {
-		return nil
-	}
-
-	return indices
-}
-
-func PrintWord(word string) string {
-	rand.Seed(time.Now().UnixNano())
-	revealedCount := len(word)/2 - 1
-	revealedIndices := make([]int, revealedCount)
-	for i := 0; i < revealedCount; i++ {
-		randomIndex := rand.Intn(len(word))
-		revealedIndices[i] = randomIndex
-	}
-
-	var str string
-
-	for i := 0; i < len(word); i++ {
-		revealed := false
-		for _, index := range revealedIndices {
-			if i == index {
-				str += string(word[i])
-				revealed = true
-				break
-			}
-		}
-		if !revealed {
-			str += "_"
-		}
-	}
-
-	return str
-}
-
-func RevealLetters(word string, indices []int, revealedWord string) string {
-	revealed := []rune(revealedWord)
-	WordTab := []rune(word)
-
-	for _, index := range indices {
-		if index >= 0 && index < len(WordTab) && revealed[index] == '_' {
-			revealed[index] = WordTab[index]
-		}
-	}
-
-	return string(revealed)
-}
-
 
 func main() {
 	fs := http.FileServer(http.Dir("static"))
