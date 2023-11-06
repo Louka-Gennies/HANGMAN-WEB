@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"net/http"
 	"strings"
-	"ytrack.learn.ynov.com/git/glouka/HANGMAN.git"
+	"github.com/Louka-Gennies/HANGMAN-LOCAL"
 )
 
 type ContactDetails struct {
@@ -27,15 +27,33 @@ func letterExists(letters []string, letter string) bool {
 	return false
 }
 
+func VerifyIndice(word, letter string) []int {
+	WordTab := []rune(word)
+	RuneLetter := []rune(letter)
+	var indices []int
+
+	for i := 0; i < len(WordTab); i++ {
+		if RuneLetter[0] == WordTab[i] {
+			indices = append(indices, i)
+		}
+	}
+
+	if len(indices) == 0 {
+		return nil
+	}
+
+	return indices
+}
+
 func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
     tmpl := template.Must(template.ParseFiles("template/forms.html"))
 
-    details.RandomWord, _ = WordList("words.txt")
+    details.RandomWord, _ = hangman.WordList("words.txt")
 
-    details.WordFind = PrintWord(details.RandomWord)
+    details.WordFind = hangman.PrintWord(details.RandomWord)
 
     details.Try = 10
 
@@ -47,20 +65,20 @@ func main() {
 
         letter := strings.ToUpper(r.FormValue("letter"))
 
-        correctLetter := Verify(details.RandomWord, letter)
+        correctLetter := hangman.Verify(details.RandomWord, letter)
 
         if len(letter) == 1 && !letterExists(details.LettersGood, letter) && !letterExists(details.LettersWrong, letter) {
-            if correctLetter == true {
-                details.LettersGood = append(details.LettersGood, letter)
-            } else {
-                details.LettersWrong = append(details.LettersWrong, letter)
-                details.Try -= 1
-            }
-        }
-
+			if len(correctLetter) > 0 {
+				details.LettersGood = append(details.LettersGood, letter)
+			} else {
+				details.LettersWrong = append(details.LettersWrong, letter)
+				details.Try -= 1
+			}
+		}
+		
         indice := VerifyIndice(details.RandomWord, letter)
 
-        details.WordFind = RevealLetters(details.RandomWord, indice, details.WordFind)
+        details.WordFind = hangman.RevealLetters(details.RandomWord, indice, details.WordFind)
 
         if details.RandomWord == details.WordFind {
             http.Redirect(w, r, "/victory", http.StatusSeeOther)
@@ -79,7 +97,7 @@ func main() {
         tmpl := template.Must(template.ParseFiles("template/victory.html"))
 		
 		// Generate a new random word
-		newRandomWord, err := WordList("words.txt")
+		newRandomWord, err := hangman.WordList("words.txt")
 		if err != nil {
 			http.Error(w, "Error generating a new random word", http.StatusInternalServerError)
 			return
@@ -89,7 +107,7 @@ func main() {
 		details.RandomWord = newRandomWord
 		details.LettersGood = []string{}
 		details.LettersWrong = []string{}
-		details.WordFind = PrintWord(details.RandomWord)
+		details.WordFind = hangman.PrintWord(details.RandomWord)
 		details.Try = 10
 
 		tmpl.Execute(w, nil)
@@ -99,7 +117,7 @@ func main() {
         tmpl := template.Must(template.ParseFiles("template/defeat.html"))
 
 		// Generate a new random word
-		newRandomWord, err := WordList("words.txt")
+		newRandomWord, err := hangman.WordList("words.txt")
 		if err != nil {
 			http.Error(w, "Error generating a new random word", http.StatusInternalServerError)
 			return
@@ -109,7 +127,7 @@ func main() {
 		details.RandomWord = newRandomWord
 		details.LettersGood = []string{}
 		details.LettersWrong = []string{}
-		details.WordFind = PrintWord(details.RandomWord)
+		details.WordFind = hangman.PrintWord(details.RandomWord)
 		details.Try = 10
 
 		tmpl.Execute(w, nil)
