@@ -7,9 +7,10 @@
 <body>
     <h1>HANGMAN WEB</h1>
     <h2>Le mot à trouver :</h2>
+    <p>Nombre de lettres : {{len .RandomWord}}</p>
     <p>{{.RandomWord}}</p>
     <p>{{.WordFind}}</p>
-    <form action="/" method="post">
+    <form action="/hangman" method="post">
         <label for="letter">Lettre :</label>
         <input type="text" id="letter" name="letter" required>
         <input type="submit" value="Envoyer">
@@ -27,6 +28,6 @@
             <li>{{.}}</li>
         {{end}}
     </ul>
-    <h2>{{.Status}}</h2>
+    <h2>{{.Status}}</h2>  
 </body>
 </html>
