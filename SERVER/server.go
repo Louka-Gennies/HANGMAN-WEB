@@ -129,6 +129,9 @@ func RevealLetters(word string, indices []int, revealedWord string) string {
 
 
 func main() {
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
     tmpl := template.Must(template.ParseFiles("template/forms.html"))
 
     details.RandomWord, _ = WordList("words.txt")
