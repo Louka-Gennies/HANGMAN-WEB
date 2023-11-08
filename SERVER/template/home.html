@@ -1,10 +1,126 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="fr">
+  <head>
+    <!-- en-tête de la page -->
     <title>HOME</title>
-</head>
-<body>
-    <h1>THE HANGMAN GAME</h1>
-    <button onclick="location.href='/hangman'">START</button>
-</body>
+    <link  rel="stylesheet" type="text/css" href="../static/CSS/style_recette.css" />
+    <script type="text/javascript" src="../static/JS/dropdown.js"></script>
+    <!-- encodage des caractères -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <img onclick="location.href='acceuil.html'" src="../static/IMG/logo.png" class="logo" alt="logo">
+        <nav>
+          <ul>
+            <li><a href="acceuil.html">Acceuil</a></li>
+            <li><a href="entree.html">Entrée</a></li>
+            <li><a href="plat.html">Plat</a></li>
+            <li><a href="dessert.html">Dessert</a></li>
+            <li><a href="aperitif.html">Apéritif</a></li>
+            <li><a href="source.html">Source</a></li>
+          </ul>
+        </nav>
+        <div class="dropdown">
+          <img onclick="myFunction()" src="../static/IMG/menu.png" class="menu-icon dropbtn" alt="menu icon">
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">Quelques sites de cuisine :</a>
+            <a href="https://www.marmiton.org/">Marmiton</a>
+            <a href="https://www.cuisineactuelle.fr/">Cuisine actuelle</a>
+            <a href="https://www.cuisineaz.com/">Cuisineaz</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h1>HANGMAN</h1>
+        </div>
+        <div id="apero" class="col">
+          <div onclick="location.href='#popup1'" class="card card1">
+            <h5>RULES</h5>
+          </div>
+          <div onclick="location.href='#popup2'" class="card card2">
+            <h5>PLAY</h5>
+          </div>
+          <div onclick="location.href='#popup3'" class="card card3">
+            <h5>Salade de perles / saumon / crevettes</h5>
+          </div>
+        </div>
+      </div>
+      <div id="popup1" class="overlay">
+        <div class="popup">
+          <h1>Roulés chorizo emmental</h1>
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+            <p>INGREDIENTS :</p>
+            <p>230 g de pâte feuilletée soit 1 rouleau / 70 g de chorizo soit 12 tranches fines / 50 g d'emmental râpé</p>
+            <p>ÉTAPE 1 :</p>
+            <p>Dérouler la pâte feuilletée, répartir les tranches de chorizo sur toute la surface. Parsemer de fromage râpé et rouler la pâte sur elle-même en serrant bien. </p>
+            <p>ÉTAPE 2 :</p>
+            <p>Réserver 20 minutes au congélateur. 
+              Préchauffer le four à 180°C. 
+            </p>
+            <p>ÉTAPE 3 :</p>
+            <p>Découper le rouleau de pâte en rondelles d'1 cm d'épaisseur. Disposer les roulés sur une plaque recouverte de papier de cuisson et enfourner 20 minutes. </p>
+            <p>ÉTAPE 4 :</p>
+            <p>Bon appétit !</p>
+          </div>
+        </div>
+      </div>
+      <div id="popup2" class="overlay">
+        <div class="popup">
+          <h1>Roulés feuilletés à la saucisse</h1>
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+            <p>INGREDIENTS :</p>
+            <p>5cl de lait / moutarde / crème fraîche / poivre / knacki / pâte feuilletée / 1 jaune d'oeuf</p>
+            <p>ÉTAPE 1 :</p>
+            <p>Etalez la pâte feuilletée.</p>
+            <p>ÉTAPE 2 :</p>
+            <p>Coupez huit rectangles de la longueur des saucisses sur environ 5 cm de large.</p>
+            <p>ÉTAPE 3 :</p>
+            <p>Badigeonnez les morceaux de moutarde et de crème fraîche. Poivrez. Posez les saucisses dessus et enroulez la pâte autour. Découpez 4 à 5 tronçons pour chaque.</p>
+            <p>ÉTAPE 4 :</p>
+            <p>Dorez les feuilletés avec le jaune d'oeuf délayé dans le lait.</p>
+            <p>ÉTAPE 5 :</p>
+            <p>Faites cuire 15 à 20 minutes au four à 180°C (thermostat 6).</p>
+            <p>ÉTAPE 6 :</p>
+            <p>Servez chaud à l'apéritif ou avec une salade.</p>
+            <p>ÉTAPE 7 :</p>
+            <p>Bon appétit !</p>
+          </div>
+        </div>
+      </div>
+      <div id="popup3" class="overlay">
+        <div class="popup">
+          <h1>Salade de perles / saumon / crevettes</h1>
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+            <p>INGREDIENTS :</p>
+            <p>250 g de pâtes "perles" / 100g de saumon ou de truite fumée (chutes, lardons, ...) / 1 cuillère à soupe d'oeufs de truite ou de saumon / 50g de petites crevettes / 1 échalote / ciboulette / sel, poivre / le jus d'1/2 citron / 4 cuillères à soupe d'huile d'olive</p>
+            <p>ÉTAPE 1 :</p>
+            <p>Faites cuire les pâtes dans une casserole d'eau bouillante pendant 8 minutes environ (indication sur le paquet).</p>
+            <p>ÉTAPE 2 :</p>
+            <p>Egoutez-les, passez-les sous l'eau froide, ajoutez 2 cuillères à soupe d'huile d'olive et laissez-les refroidir.</p>
+            <p>ÉTAPE 3 :</p>
+            <p>Préparez la sauce en mélangeant le jus de citron, 2 cuillères à soupe d'huile d'olive, salez et poivrez.</p>
+            <p>ÉTAPE 4 :</p>
+            <p>Émincez le saumon en petits morceaux.</p>
+            <p>ÉTAPE 5 :</p>
+            <p>Lavez, séchez et ciselez la ciboulette.</p>
+            <p>ÉTAPE 6 :</p>
+            <p>Épluchez et émincez l'échalote./p>
+            <p>ÉTAPE 7 :</p>
+            <p>Versez les pâtes dans un saladier, ajoutez le samon fumé, les crevettes, les oeufs de truite, la ciboulette, l'échalote puis la sauce et mélangez délicatement.</p>
+            <p>ÉTAPE 8 :</p>
+            <p>Laissez reposer au réfrigérateur jusqu'au moment de servir.</p>
+            <p>ÉTAPE 9 :</p>
+            <p>Bon appétit !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
+<!--༼ つ ◕_◕ ༽つ-->
