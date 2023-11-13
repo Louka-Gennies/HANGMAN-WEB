@@ -5,15 +5,15 @@ h1 {
   letter-spacing: .1em;
   text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0,0,0,0.9);
   color: #e0dfdc;
-  font-size: 55px;
+  font-size: 100px;
   background: #556677;
   }
 body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 30px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   word-spacing: 2px;
-  color: #000000;
+  color: #FF0000;
   font-weight: 400;
   text-decoration: none;
   font-style: normal;
@@ -22,8 +22,91 @@ body {
   text-align: center;
   background-color: #556677;
   color: #e0dfdc;
-  font-size: 25px;
+  font-size: 20px;
   }
+p {
+  font-size: 40px;
+}
+li.good {
+  color: #00ff00;
+  font-weight: 700;
+  font-size: 40px;
+  content: ", ";
+  display: inline;
+  }
+li.wrong {
+  color: #ff0000;
+  font-weight: 700;
+  font-size: 40px;
+  content: ", ";
+  display: inline;
+  }
+.boite-parente {
+    display: flex; /* Utilisez un affichage flex pour les aligner horizontalement */
+}
+
+.boite-texte {
+    list-style: none;
+    width: 50%; /* Chaque boîte prend 50% de la largeur de la boîte parente pour les aligner côte à côte */
+    padding: 10px;
+}
 ul, ol {
   list-style: none;
   }
+.myButton {
+  color: rgb(000, 000, 000);
+  font-size: 30px;
+  line-height: 30px; 
+  padding:10px; 
+  border-radius: 11px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  background: #7A91AB ;
+  box-shadow: rgb(0, 0, 0) 0px 5px 15px 5px;
+  display: inline-block;}
+
+.myButton:hover {
+  background: #61738A; }
+.myButton:active {
+  background: #485566; }
+
+.selection-lettres {
+  display: flex;
+  flex-direction: row; /* Alignement horizontal */
+  align-items: center; /* Alignement vertical au centre */
+  margin: 0 auto; /* Centre le formulaire horizontalement */
+  max-width: 400px; /* Largeur maximale du formulaire (ajustez selon vos besoins) */
+}
+.container {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  height: 100vh; /* Hauteur de la vue à 100% de la hauteur de la fenêtre */
+}
+.selection-lettres label{
+  /* Ajoutez ici les styles pour le formulaire en général */
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: rgb(255,255,255);
+  font-size: 30px;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.selection-lettres input[type="text"] {
+  width: 50px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.selection-lettres input[type="text"]:focus {
+  /* Styles pour le champ de texte lorsqu'il est en focus */
+  outline: none;
+  border: 2px solid #000000;
+  border-color: #000000; /* Exemple de couleur d'accentuation */
+}
