@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>HANGMAN WEB</title>
-    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
-</head>
-<body>
-    <h1>HANGMAN WEB</h1>
-    <h2>Nombre de lettres : {{len .RandomWord}}</h2>
-    <p>Le mot à trouver :</p>
-    <p>{{.RandomWord}}</p>
-    <p>{{.WordFind}}</p>
-    <form class="selection-lettres" action="/hangman" method="post">
-        <label for="letter">Lettre :</label>
-        <input type="text" id="letter" name="letter" required autofocus>
-    </form>
-<div class="boite-parente">
-    <div class="boite-texte">
-        <p>Lettres bonnes :</p>
-        <p>
-           {{range .LettersGood}}
-             <li class="good">{{.}}</li>
-           {{end}}
-        </p>
-    </div>
-    <div class="boite-texte">
-        <p>Lettres mauvaises :</p>
-        <p>
-           {{range .LettersWrong}}
-             <li class="wrong">{{.}}</li>
-           {{end}}
-        </p>
-    </div>
-</div>  
-</body>
+    <head>
+        <title>HANGMAN WEB</title>
+        <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- NavBar Section -->
+            <nav>
+                <div class="wrapper">
+                <div class="logo"><a href="#">HANGMAN</a></div>
+                    <ul class="nav-links">
+                        <li><a href="/home">HOME</a></li>
+                        <li><a href="/hangman">PLAY</a></li>
+                        <li><a href="#popup_rules">RULES</a></li>
+                        <li><a href="#popup_contact">CONTACT</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <h1>HANGMAN WEB</h1>
+            <h2>Nombre de lettres : {{len .RandomWord}}</h2>
+            <p>Le mot à trouver :</p>
+            <p>{{.RandomWord}}</p>
+            <p>{{.WordFind}}</p>
+            <form class="selection-lettres" action="/hangman" method="post">
+                <label for="letter">Lettre :</label>
+                <input type="text" id="letter" name="letter" required autofocus>
+            </form>
+            <div class="boite-parente">
+                <div class="boite-texte">
+                    <p>Lettres bonnes :</p>
+                    <p>
+                    {{range .LettersGood}}
+                        <li class="good">{{.}}</li>
+                    {{end}}
+                    </p>
+                </div>
+                <div class="boite-texte">
+                    <p>Lettres mauvaises :</p>
+                    <p>
+                    {{range .LettersWrong}}
+                        <li class="wrong">{{.}}</li>
+                    {{end}}
+                    </p>
+                </div>
+            </div> 
+        </div>
+    </body>
 </html>
