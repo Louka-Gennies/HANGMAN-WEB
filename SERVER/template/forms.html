@@ -21,11 +21,13 @@
             <h1>HANGMAN WEB</h1>
             <h2>Nombre de lettres : {{len .RandomWord}}</h2>
             <p>Le mot à trouver :</p>
-            <p>{{.RandomWord}}</p>
             <p>{{.WordFind}}</p>
             <form class="selection-lettres" action="/hangman" method="post">
-                <label for="letter">Lettre :</label>
-                <input type="text" id="letter" name="letter" required autofocus>
+                <div class="box-input">
+                    <div class="border">
+                      <input type="text" name="text" class="input" placeholder="LETTER" autofocus>
+                    </div>
+                  </div>
             </form>
             <div class="boite-parente">
                 <div class="boite-texte">

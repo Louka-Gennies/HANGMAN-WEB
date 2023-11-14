@@ -195,26 +195,16 @@ ul {
   align-items: center; /* Centre verticalement */
 }
 
-.selection-lettres label{
-  /* Ajoutez ici les styles pour le formulaire en général */
-  color: rgb(255,255,255);
-  font-size: 30px;
-  max-width: 400px;
-  padding: 10px;
-  border-radius: 5px;
-}
 
 .selection-lettres input[type="text"] {
-  width: 50px;
-  height: 30px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.selection-lettres input[type="text"]:focus {
-  /* Styles pour le champ de texte lorsqu'il est en focus */
+  margin: 30px;
+  background: none;
+  border: none;
   outline: none;
-  border: 2px solid #000000;
-  border-color: #000000; /* Exemple de couleur d'accentuation */
+  max-width: 90px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 9999px;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  color: #fff;
 }
