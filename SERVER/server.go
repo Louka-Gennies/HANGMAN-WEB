@@ -133,5 +133,25 @@ func main() {
 		tmpl.Execute(w, nil)
     })
 
+	http.HandleFunc("/home", func(w http.ResponseWriter, r *http.Request) {
+        tmpl := template.Must(template.ParseFiles("template/home.html"))
+
+		// Generate a new random word
+		newRandomWord, err := hangman.WordList("words.txt")
+		if err != nil {
+			http.Error(w, "Error generating a new random word", http.StatusInternalServerError)
+			return
+		}
+	
+		// Reset all variables to their initial state with the new random word
+		details.RandomWord = newRandomWord
+		details.LettersGood = []string{}
+		details.LettersWrong = []string{}
+		details.WordFind = hangman.PrintWord(details.RandomWord)
+		details.Try = 10
+
+		tmpl.Execute(w, nil)
+    })
+
     http.ListenAndServe(":8080", nil)
 }
