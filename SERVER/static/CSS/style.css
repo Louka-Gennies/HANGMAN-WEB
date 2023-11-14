@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 body {
   background-color: #2e2e2e;
   font-size: 30px;
@@ -37,7 +38,6 @@ nav {
   background: #242526;
   top: 0; /* Add this property to keep the nav at the top */
 }
-
 
 nav .wrapper{
   position: relative;
@@ -121,9 +121,9 @@ h1 {
   background: #2e2e2e;
   letter-spacing: .1em;
   text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0,0,0,0.9);
-  font-size: 100px;
+  font-size: 90px;
   background: #2e2e2e;
-  }
+}
 
 p {
   font-size: 40px;
@@ -135,7 +135,7 @@ li.good {
   font-size: 40px;
   content: ", ";
   display: inline;
-  }
+}
 
 li.wrong {
   color: #ff0000;
@@ -143,45 +143,78 @@ li.wrong {
   font-size: 40px;
   content: ", ";
   display: inline;
-  }
+}
 
 .boite-parente {
-    display: flex; /* Utilisez un affichage flex pour les aligner horizontalement */
+  display: flex; /* Utilisez un affichage flex pour les aligner horizontalement */
 }
 
 .boite-texte {
-    list-style: none;
-    width: 50%; /* Chaque boîte prend 50% de la largeur de la boîte parente pour les aligner côte à côte */
-    padding: 10px;
+  list-style: none;
+  width: 50%; /* Chaque boîte prend 50% de la largeur de la boîte parente pour les aligner côte à côte */
+  padding: 10px;
 }
 
 ul {
   list-style: none;
-  }
-
-.myButton {
-  color: #f2f2f2;
-  font-size: 30px;
-  line-height: 30px;
-  padding: 10px 20px; /* Adjust the padding to control the button size */
-  border-radius: 11px;
-  font-weight: normal;
-  text-decoration: none;
-  background: #242526;
-  box-shadow: rgb(0, 0, 0) 0px 5px 15px 5px;
-  transition: 0.5s;
-  text-align: center; /* Center the text horizontally */
 }
 
-.myButton:hover {
-  background: #3A3B3C;
+.button {
+  position: relative;
+  width: 240px;
+  height: 80px;
+  background-color: #242526;
+  display: flex;
+  align-items: center;
+  font-size: larger;
+  color: #f2f2f2;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
   cursor: pointer;
 }
   
-.myButton:active {
-  background: #434344;
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 250px;
+  height: 90px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #00ff75 0%, #3700ff 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
+  
+.button::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #00ff75 0%, #3700ff 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+  
+.button:hover::after {
+  filter: blur(30px);
+}
+  
+.button:hover::before {
+  transform: rotate(-180deg);
+}
+  
+.button:active::before {
+  scale: 0.7;
+}
+  
 .selection-lettres {
   display: flex;
   flex-direction: row; /* Alignement horizontal */
@@ -206,5 +239,5 @@ ul {
   font-size: 16px;
   border-radius: 9999px;
   box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-  color: #fff;
+  color: #f2f2f2;
 }
