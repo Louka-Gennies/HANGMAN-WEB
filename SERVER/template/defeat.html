@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Défaite</title>
-        <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
-    </head>
-    <body>
-        <div class="container">
-            <!-- NavBar Section -->
-            <nav>
-                <div class="wrapper">
-                <div class="logo"><a href="#">HANGMAN</a></div>
-                    <ul class="nav-links">
-                        <li><a href="/home">HOME</a></li>
-                        <li><a href="/hangman">PLAY</a></li>
-                        <li><a href="#popup_rules">RULES</a></li>
-                        <li><a href="#popup_contact">CONTACT</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <h1>Mince, tu as perdu...</h1>
-            <button class="button" onclick="location.href='/hangman'">
-                Restart
-            </button>
+<head>
+  <title>Défaite</title>
+  <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- NavBar Section -->
+    <nav>
+      <div class="wrapper">
+        <div class="logo">
+          <a href="#">HANGMAN</a>
         </div>
-    </body>
+        <ul class="nav-links">
+          <li>
+            <a href="/home">HOME</a>
+          </li>
+          <li>
+            <a href="/hangman">PLAY</a>
+          </li>
+          <li>
+            <a href="#popup_rules">RULES</a>
+          </li>
+          <li>
+            <a href="#popup_contact">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1>Mince, tu as perdu...</h1><button class="button" onclick="location.href='/hangman'">Restart</button>
+  </div>
+</body>
 </html>
