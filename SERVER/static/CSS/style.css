@@ -26,7 +26,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-wrap:wrap;
-margin:300px 10%
+margin:300px 10%;
 }
 
 nav {
@@ -123,7 +123,9 @@ background:#2e2e2e
 }
 
 p {
-font-size:40px
+position: relative;
+right: -150px;
+font-size:40px;
 }
 
 li.good {
@@ -131,7 +133,7 @@ color:#0f0;
 font-weight:700;
 font-size:40px;
 content:", ";
-display:inline
+display:flex;
 }
 
 li.wrong {
@@ -139,7 +141,7 @@ color:red;
 font-weight:700;
 font-size:40px;
 content:", ";
-display:inline
+display:flex;
 }
 
 .boite-parente {
@@ -158,6 +160,7 @@ list-style:none
 
 .button {
 position:relative;
+bottom: -80px;
 width:240px;
 height:80px;
 background-color:#242526;
@@ -166,7 +169,7 @@ align-items:center;
 font-size:larger;
 color:#f2f2f2;
 flex-direction:column;
-justify-content:center;
+justify-content: center;
 border:none;
 padding:12px;
 gap:12px;
@@ -214,8 +217,9 @@ scale:.7
 
 .selection-lettres {
 display:flex;
+text-align: center;
 flex-direction:row;
-align-items:center;
+align-items:left;
 margin:0 auto;
 max-width:400px;
 justify-content:center;
@@ -223,7 +227,10 @@ align-items:center
 }
 
 .selection-lettres input[type="text"] {
-margin:30px;
+position: relative;
+bottom: -80px;
+left: -450px;
+margin:80px;
 background:none;
 border:none;
 outline:none;
@@ -233,4 +240,10 @@ font-size:16px;
 border-radius:9999px;
 box-shadow:inset 2px 5px 10px #050505;
 color:#f2f2f2
+}
+
+.boite-texte {
+position:relative;
+bottom: -80px;
+right: 100px;
 }

@@ -19,8 +19,7 @@
                 </div>
             </nav>
             <h1>HANGMAN WEB</h1>
-            <h2>Nombre de lettres : {{len .RandomWord}}</h2>
-            <p>Le mot à trouver :</p>
+            <p>Nombre de lettres : {{len .RandomWord}} Le mot à trouver :</p>
             <p>{{.WordFind}}</p>
             <form class="selection-lettres" action="/hangman" method="post">
                 <div class="box-input">
