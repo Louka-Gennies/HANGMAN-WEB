@@ -19,7 +19,7 @@
                 </div>
             </nav>
             <h1>HANGMAN WEB</h1>
-            <p>Nombre de lettres : {{len .RandomWord}} Le mot à trouver :</p>
+            <p>Number of letters : {{len .RandomWord}} The word to find :</p>
             <p>{{.WordFind}}</p>
             <form class="selection-lettres" action="/hangman" method="post">
                 <div class="box-input">
@@ -30,7 +30,7 @@
             </form>
             <div class="boite-parente">
                 <div class="boite-texte">
-                    <p>Lettres bonnes :</p>
+                    <p>Good letters :</p>
                     <p>
                     {{range .LettersGood}}
                         <li class="good">{{.}}</li>
@@ -38,7 +38,7 @@
                     </p>
                 </div>
                 <div class="boite-texte">
-                    <p>Lettres mauvaises :</p>
+                    <p>Bad letters :</p>
                     <p>
                     {{range .LettersWrong}}
                         <li class="wrong">{{.}}</li>
