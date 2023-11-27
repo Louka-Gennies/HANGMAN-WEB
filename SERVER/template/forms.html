@@ -18,34 +18,35 @@
                     </ul>
                 </div>
             </nav>
-            <h1>HANGMAN WEB</h1>
-            <p>Number of letters : {{len .RandomWord}} The word to find :</p>
-            <p>{{.WordFind}}</p>
-            <form class="selection-lettres" action="/hangman" method="post">
-                <div class="box-input">
-                    <div class="border">
-                      <input type="text" id="letter" name="letter" class="input" placeholder="LETTER" autofocus required>
+            <div class="parent">
+              <p>Number of letters : {{len .RandomWord}}</p>
+              <p> The word to find : {{.WordFind}}</p>
+              <form class="selection-lettres" action="/hangman" method="post">
+                  <div class="box-input">
+                      <div class="border">
+                        <input type="text" id="letter" name="letter" class="input" placeholder="LETTER" autofocus required>
+                      </div>
                     </div>
+              </form>
+              <div class="boite-parente">
+                  <div class="boite-texte">
+                      <p>Good letters :</p>
+                      <p>
+                      {{range .LettersGood}}
+                          <li class="good">{{.}}</li>
+                      {{end}}
+                      </p>
                   </div>
-            </form>
-            <div class="boite-parente">
-                <div class="boite-texte">
-                    <p>Good letters :</p>
-                    <p>
-                    {{range .LettersGood}}
-                        <li class="good">{{.}}</li>
-                    {{end}}
-                    </p>
-                </div>
-                <div class="boite-texte">
-                    <p>Bad letters :</p>
-                    <p>
-                    {{range .LettersWrong}}
-                        <li class="wrong">{{.}}</li>
-                    {{end}}
-                    </p>
-                </div>
-            </div> 
+                  <div class="boite-texte">
+                      <p>Bad letters :</p>
+                      <p>
+                      {{range .LettersWrong}}
+                          <li class="wrong">{{.}}</li>
+                      {{end}}
+                      </p>
+                  </div>
+              </div> 
+          </div>
         </div>
     </body>
 </html>
