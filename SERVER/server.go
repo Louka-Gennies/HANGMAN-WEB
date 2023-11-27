@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strings"
 	"github.com/Louka-Gennies/HANGMAN-LOCAL"
+	"fmt"
 )
 
 type ContactDetails struct {
@@ -68,6 +69,7 @@ func main() {
         correctLetter := hangman.Verify(details.RandomWord, letter)
 
         if len(letter) == 1 && !letterExists(details.LettersGood, letter) && !letterExists(details.LettersWrong, letter) {
+			fmt.Println("Received letter:", letter)
 			if len(correctLetter) > 0 {
 				details.LettersGood = append(details.LettersGood, letter)
 			} else {
